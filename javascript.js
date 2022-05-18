@@ -1,5 +1,5 @@
 /*==========
-  Version 3.1.4
+  Version 3.2
   Split Sections Code For Squarespace 7.1 & 7.0
    Copyright Will Myers 
 ========== */
@@ -14,7 +14,7 @@ $(function(){
     };
 
     // load me some stylesheet 
-    var url = "https://assets.codepen.io/3198845/WMSplitSections9720v3.1.6.css",
+    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.002/styles.css",
         head = document.getElementsByTagName('head')[0],
         link = document.createElement('link');
 
