@@ -92,6 +92,14 @@ body:not(.sqs-edit-mode-active) .remove-height{
   }
 }
 
+/*Default Section Backgrounds*/
+.wm-split-section .section-background img{
+  width: 100%;
+  height: 100%;
+  object-position: 50%;
+  object-fit: cover;
+}
+
 .wm-split-sections:not(:first-child) .page-section:first-child{
   padding-top:unset;
 }
