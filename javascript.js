@@ -14,7 +14,7 @@ $(function(){
     };
 
     // load me some stylesheet 
-    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.002/styles.css",
+    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.003/styles.css",
         head = document.getElementsByTagName('head')[0],
         link = document.createElement('link');
 
