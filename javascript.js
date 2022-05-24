@@ -14,7 +14,7 @@ $(function(){
     };
 
     // load me some stylesheet 
-    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.003/styles.css",
+    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.004/styles.css",
         head = document.getElementsByTagName('head')[0],
         link = document.createElement('link');
 
@@ -204,13 +204,22 @@ $(function(){
         $('.wm-split-section').unwrap();
       })
     }
-    function loadAllImages() {
-      var images = document.querySelectorAll('.wm-split-sections img[data-src]' );
-      for (var i = 0; i < images.length; i++) {
-        ImageLoader.load(images[i], {load: true});
-      }
+
+    function loadImages() {
+      let images = document.querySelectorAll('.wm-split-section .summary-v2-block img, .wm-split-section .section-background img');
+      images.forEach(img => {
+        let imgData = img.dataset,
+            focalPoint = imgData.imageFocalPoint,
+            parentRation = imgData.parentRatio;
+
+        if (focalPoint) {
+          let x = focalPoint.split(',')[0] * 100,
+              y = focalPoint.split(',')[1] * 100;
+          img.style.setProperty('--position', `${x}% ${y}%`)
+        }
+      });
     }
-    loadAllImages();
+    loadImages();
 
     adjustHeaderHeight();
     window.addEventListener("resize", adjustHeaderHeight);
