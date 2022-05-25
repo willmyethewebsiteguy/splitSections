@@ -14,7 +14,7 @@ $(function(){
     };
 
     // load me some stylesheet 
-    var url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.004/styles.css",
+    let url = "https://assets.codepen.io/3198845/WMSplitSectionsTESTINGONLY.css",
         head = document.getElementsByTagName('head')[0],
         link = document.createElement('link');
 
@@ -177,7 +177,7 @@ $(function(){
             if (mutation.type === 'attributes') {
               setTimeout(function(){
                 let headerHeight = $('#header')[0].getBoundingClientRect().height + 'px';
-                $(':root').css({'--wm-header-height': headerHeight})
+                $(':root').css({'--wm-header-bottom': headerHeight})
               }, 100);
             }
           }
@@ -188,15 +188,14 @@ $(function(){
       $('body').addClass('wm-split-sections-added');
     });
 
-    let wmHeaderHeight;
     /*Adjust Padding on First Section*/
-    function adjustHeaderHeight(){
-      if (wmHeaderHeight != $('header#header').height() + "px"){
-        setTimeout(function(){
-          wmHeaderHeight = $('header#header').height() + "px";
-          $(':root').css('--wm-header-height', wmHeaderHeight);
-        },150);
-      }
+    function adjustHeaderBottom(){
+      let header = document.querySelector('#header'),
+          headerBottom = header.getBoundingClientRect().bottom > 0 ? header.getBoundingClientRect().bottom - 1 + "px" : 0 + "px";
+
+      $('.wm-split-section.split-sticky').each(function(){
+        $(this)[0].style.setProperty('--wm-header-bottom', headerBottom);
+      },150);
     }
 
     if(window.self !== window.top){
@@ -221,9 +220,13 @@ $(function(){
     }
     loadImages();
 
-    adjustHeaderHeight();
-    window.addEventListener("resize", adjustHeaderHeight);
-    window.addEventListener('scroll', adjustHeaderHeight);
+    if (document.querySelector('#header')) {
+      adjustHeaderBottom();
+      window.addEventListener("resize", adjustHeaderBottom);
+      $('#header')[0].addEventListener("transition", adjustHeaderBottom);
+      $('#header')[0].addEventListener("transitionend", adjustHeaderBottom);
+    }
+    
     window.dispatchEvent(new Event('resize'));
   }
 });
