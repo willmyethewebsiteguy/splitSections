@@ -198,8 +198,19 @@ $(function(){
       $('#header')[0].addEventListener("transition", adjustHeaderBottom);
       $('#header')[0].addEventListener("transitionend", adjustHeaderBottom);
     }
-    
+
     window.dispatchEvent(new Event('resize'));
+    window.addEventListener('load', function() {
+      window.setTimeout(function() {
+        function loadAllImages() {
+          var images = document.querySelectorAll('img[data-src]' );
+          for (var i = 0; i < images.length; i++) {
+            ImageLoader.load(images[i], {load: true});
+          }
+        }
+        loadAllImages();
+      }, 200)
+    })
   }
 });
 $('body').addClass('wm-split-sections-completed');
