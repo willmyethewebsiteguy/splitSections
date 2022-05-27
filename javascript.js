@@ -13,29 +13,34 @@ $(function(){
       window.dispatchEvent(new Event('wmSplitCSSLoaded'));
     };
 
-    // load me some stylesheet 
-    let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.006/styles.css",
-        head = document.getElementsByTagName('head')[0],
-        link = document.createElement('link');
+    // load the stylesheet 
+    if(!document.querySelector('#wm-split-css')) {
+      let url = "https://assets.codepen.io/3198845/WMSplitSectionsTESTINGONLY.css",
+          head = document.getElementsByTagName('head')[0],
+          link = document.createElement('link');
 
-    link.type = "text/css"; 
-    link.rel = "stylesheet";
-    link.href = url;
-    link.id = 'wm-split-css'
+      link.type = "text/css"; 
+      link.rel = "stylesheet";
+      link.href = url;
+      link.id = 'wm-split-css'
 
-    link.onload = function () {
-      CSSDone();
-    };   
-    head.appendChild(link);
+      link.onload = function () {
+        CSSDone();
+      };   
+      head.prepend(link);
+    }
 
     /*Add 7.0 Code & CSS*/
     if ($('main.Index').length){
       $('body').addClass('sqs-seven-oh');
-     
     } 
 
     /*Build Split Object*/
     $('[data-wm-plugin="split-sections"]').each(function(i){
+      if($(this).closest('.wm-split-sections').length) {
+        return;
+      }
+      
       let index = i + 1,
           splitSection,
           splitCount = 2,
@@ -144,57 +149,24 @@ $(function(){
         sectionBackgroundColor = $(stickySection).find('.section-background').css('background-color');
         $(splitSection).css({'background-color': sectionBackgroundColor});
         // Get background color
-        
-        //if in 7.1 and Header has Scroll-Back
-        if ($('body').hasClass('tweak-fixed-header-style-scroll-back')){
-          function checkScrollBack(){
-            if ($('#header .header-announcement-bar-wrapper').css('transform') === "matrix(1, 0, 0, 1, 0, 0)") {
-              $('body').removeClass('scroll-back-up');
-              $('body').addClass('scroll-back-down');             
-            } else {
-              $('body').removeClass('scroll-back-down');
-              $('body').addClass('scroll-back-up');
-            }
-          }
-          checkScrollBack();
-          window.addEventListener('scroll', checkScrollBack);
-        }
       }
 
       if ($(this).attr('data-background')) {
         $('#split-group-' + index).css({'background-color': $(this).attr('data-background')})
       }
 
-      /*If First Section*/
-      if($('#split-group-1:first-child').length & $('#header').length){
-        let targetNode = document.getElementById('header');
-        let config = { attributes: true, childList: false, subtree: false };
-
-        // Callback function to execute when mutations are observed
-        let callback = function(mutationsList, observer) {
-          // Use traditional 'for loops' for IE 11
-          for(const mutation of mutationsList) {
-            if (mutation.type === 'attributes') {
-              setTimeout(function(){
-                let headerHeight = $('#header')[0].getBoundingClientRect().height + 'px';
-                $(':root').css({'--wm-header-bottom': headerHeight})
-              }, 100);
-            }
-          }
-        };
-        let observer = new MutationObserver(callback);
-        observer.observe(targetNode, config);
-      }
       $('body').addClass('wm-split-sections-added');
     });
 
     /*Adjust Padding on First Section*/
     function adjustHeaderBottom(){
       let header = document.querySelector('#header'),
-          headerBottom = header.getBoundingClientRect().bottom > 0 ? header.getBoundingClientRect().bottom - 1 + "px" : 0 + "px";
+          headerBottom = header.getBoundingClientRect().bottom > 0 ? header.getBoundingClientRect().bottom - 1 + "px" : 0 + "px",
+          headerHeight = header.getBoundingClientRect().height + "px";
 
-      $('.wm-split-section.split-sticky').each(function(){
+      $('.wm-split-sections').each(function(){
         $(this)[0].style.setProperty('--wm-header-bottom', headerBottom);
+        $(this)[0].style.setProperty('--wm-header-height', headerHeight);
       },150);
     }
 
