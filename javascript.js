@@ -15,7 +15,7 @@ $(function(){
 
     // load the stylesheet 
     if(!document.querySelector('#wm-split-css')) {
-      let url = "https://assets.codepen.io/3198845/WMSplitSectionsTESTINGONLY.css",
+      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.006/styles.css",
           head = document.getElementsByTagName('head')[0],
           link = document.createElement('link');
 
