@@ -25,10 +25,12 @@ body.wm-split-loaded{
 /*Sticky Section on Desktop*/
 @media(min-width: 799px){
   body:not(.sqs-edit-mode-active) .split-sticky{
-    position:sticky !important;
-    top:var(--wm-header-bottom, 0px);
-    left:0;
-    height:100% !important;
+    left: 0;
+    min-height:100vh !important;
+  }
+  body:not(.sqs-edit-mode-active) .split-sticky .content-wrapper{
+    position: sticky !important;
+    top: var(--wm-header-bottom, 0px);
     transition: top 240ms ease;
   }
 }
@@ -67,9 +69,6 @@ body:not(.sqs-edit-mode-active) .remove-height{
   }
 }
 @media(max-width: 799px) {
-  body:not(.sqs-edit-mode-active) .sections > :first-child.wm-split-sections .wm-split-section{
-    padding-top:0px !important
-  }
   body:not(.sqs-edit-mode-active) .sections > :first-child.wm-split-sections {
     padding-top: var(--wm-header-height) !important
   }
