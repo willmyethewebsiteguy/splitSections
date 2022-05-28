@@ -23,6 +23,7 @@
   body:not(.sqs-edit-mode-active) .split-sticky{
     left: 0;
     min-height:100vh !important;
+    align-items: start !important;
   }
   body:not(.sqs-edit-mode-active) .split-sticky .content-wrapper{
     position: sticky !important;
