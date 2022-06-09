@@ -203,7 +203,7 @@ $(function(){
     window.addEventListener('load', function() {
       window.setTimeout(function() {
         function loadAllImages() {
-          var images = document.querySelectorAll('img[data-src]' );
+          var images = document.querySelectorAll('.wm-split-section img[data-src]' );
           for (var i = 0; i < images.length; i++) {
             ImageLoader.load(images[i], {load: true});
           }
