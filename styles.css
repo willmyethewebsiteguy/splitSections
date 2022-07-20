@@ -3,50 +3,71 @@
   * Split Sections Code For Squarespace 7.1 & 7.0
   * Copyright Will Myers 
 */
+
 /*On Mobile*/
-@media(max-width: 799px){
-  body:not(.sqs-edit-mode-active) .wm-split-sections {
-    display:flex;
-    flex-wrap:wrap;
-  }
-  body:not(.sqs-edit-mode-active) .wm-split-section {
-    width:100% !important;
-    flex-grow: 1;
-  }
-  body:not(.sqs-edit-mode-active) .wm-split-section {
-    position:relative !important;
-  }
+body:not(.sqs-edit-mode-active) .wm-split-sections.mobile-breakpoint {
+  display:flex;
+  flex-wrap:wrap;
+}
+body:not(.sqs-edit-mode-active) .mobile-breakpoint .wm-split-section {
+  width:100% !important;
+  flex-grow: 1;
+}
+body:not(.sqs-edit-mode-active) .mobile-breakpoint .wm-split-section {
+  position:relative !important;
 }
 
 /*Sticky Section on Desktop*/
-@media(min-width: 799px){
-  body:not(.sqs-edit-mode-active) .split-sticky{
-    left: 0;
-    min-height:100vh !important;
-    align-items: start !important;
-  }
-  body:not(.sqs-edit-mode-active) .split-sticky .content-wrapper{
-    position: sticky !important;
-    top: var(--wm-header-bottom, 0px);
-    transition: top 240ms ease;
-  }
-  body:not(.sqs-edit-mode-active) .split-sticky .section-background {
-    overflow:unset !important;
-  }
-  body:not(.sqs-edit-mode-active) .split-sticky .section-background > img{
-    position: sticky !important;
-    max-height: 100vh !important;
-    top: 0px;
-  }
-  body:not(.sqs-edit-mode-active) .split-sticky .section-background > [data-controller="VideoBackgroundNative"], body:not(.sqs-edit-mode-active) .split-sticky .section-background > [data-controller="VideoBackground"], body:not(.sqs-edit-mode-active) .split-sticky .section-background > .section-background-content {
-    position: sticky !important;
-    height:100%;
-    max-height: 100vh !important;
-    top: 0px;
-  }
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky{
+  left: 0;
+  min-height:100vh !important;
+  align-items: start !important;
+}
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .content-wrapper{
+  position: sticky !important;
+  top: var(--wm-header-bottom, 0px);
+  transition: top 240ms ease;
+}
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background {
+  overflow:unset !important;
+}
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > img{
+  position: sticky !important;
+  max-height: 100vh !important;
+  top: 0px;
+}
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackgroundNative"], 
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackground"], 
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > .section-background-content {
+  position: sticky !important;
+  height:100%;
+  max-height: 100vh !important;
+  top: 0px;
 }
 body:not(.sqs-edit-mode-active) .wm-split-section .content-wrapper{
   box-sizing:border-box !important;
+}
+
+/*For 7.0 Websites*/
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-content{
+  position: sticky !important;
+  top: var(--wm-header-bottom, 0px);
+  transition: top 240ms ease;
+}
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .Index-page.split-sticky{
+  overflow:unset;
+}
+
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-image {
+  overflow:unset !important;
+}
+
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-image img{
+  position: sticky !important;
+  max-height: 100vh !important;
+  top: 0px;
+  width:100% !important;
+  object-fit:cover;
 }
 
 /*When In Edit Mode*/
@@ -81,10 +102,10 @@ body:not(.sqs-edit-mode-active) .remove-height{
 }
 @media(max-width: 799px) {
   /*For Transparent Headers*/
-  body:not(.sqs-edit-mode-active).tweak-transparent-header .sections > :first-child.wm-split-sections {
+  body:not(.sqs-edit-mode-active).tweak-transparent-header .sections > :first-child.wm-split-sections.mobile-breakpoint {
     padding-top: 0px !important;
   }
-  #header[data-current-style*='"headerStyle": "gradient"'] + main .sections > :first-child.wm-split-sections{
+  #header[data-current-style*='"headerStyle": "gradient"'] + main .sections > :first-child.wm-split-sections.mobile-breakpoint{
     padding-top: 0px !important;
   }
 }
