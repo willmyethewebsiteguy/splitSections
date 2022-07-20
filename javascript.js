@@ -50,7 +50,9 @@ $(function(){
           sectionBackgroundColor,
           stickySection,
           border = 0,
-          mobileReverse = false;
+          mobileReverse = false,
+          mobileBreakpoint = 799,
+          vanillaEl = $(this)[0];
 
       if ($(this).attr('data-border')) {
         border = parseInt($(this).attr('data-border'));
@@ -88,8 +90,30 @@ $(function(){
       $(this).closest('.sqs-block-code').addClass('remove-height');
 
       //Wrap in Div
-      $('[data-wm-split-group=' + index + ']').wrapAll('<div class="wm-split-sections" id="split-group-' + index + '"></div>');
+      $(`[data-wm-split-group="${index}"]`).wrapAll(`<div class="wm-split-sections" data-breakpoint="${mobileBreakpoint}px" id="split-group-${index}"></div>`);
       splitSection = '#split-group-' + index;
+      
+
+      //Get Mobile Breakpoint CSS Values
+      let splitContainer = vanillaEl.closest('.wm-split-sections'),
+          styles = window.getComputedStyle(splitContainer),
+          breakpoint = styles.getPropertyValue('--mobile-breakpoint');
+      breakpoint = parseInt(breakpoint);
+      console.log(breakpoint);
+      
+      if (breakpoint) {
+        mobileBreakpoint = breakpoint;
+      }
+      
+      function checkBreakpoint() {
+        if (window.innerWidth <= mobileBreakpoint && !splitContainer.classList.contains('mobile-breakpoint')) {
+          splitContainer.classList.add('mobile-breakpoint');
+        } 
+        if (window.innerWidth > mobileBreakpoint) {
+          splitContainer.classList.remove('mobile-breakpoint');
+        }
+      }
+      window.addEventListener('resize', checkBreakpoint)
 
       
       /*If Widths are Declared, Set Them*/
@@ -213,5 +237,5 @@ $(function(){
       }, 200)
     })
   }
+  $('body').addClass('wm-split-sections-completed');
 });
-$('body').addClass('wm-split-sections-completed');
