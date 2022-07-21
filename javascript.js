@@ -15,7 +15,7 @@ $(function(){
 
     // load the stylesheet 
     if(!document.querySelector('#wm-split-css')) {
-      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.013/styles.min.css",
+      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.014/styles.min.css",
           head = document.getElementsByTagName('head')[0],
           link = document.createElement('link');
 
@@ -146,7 +146,7 @@ $(function(){
           }
         }
         function checkWidth() {
-          if (window.matchMedia('(max-width: 799px)').matches) {
+          if (window.matchMedia(`(max-width: ${breakpoint}px)`).matches) {
             setReverse();
           } else {
             removeReverse();
