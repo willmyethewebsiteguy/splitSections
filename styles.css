@@ -66,6 +66,7 @@ body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .spli
   position: sticky !important;
   max-height: 100vh !important;
   top: 0px;
+  height:100% !important;
   width:100% !important;
   object-fit:cover;
 }
@@ -82,9 +83,9 @@ body:not(.sqs-edit-mode-active) .wm-split-sections {
   gap: var(--gap);
   padding: var(--gap);
 }
-body.sqs-edit-mode-active section.wm-split-section{
+/*body.sqs-edit-mode-active section.wm-split-section{
   width:unset !important;
-}
+}*/
 body.sqs-edit-mode-active .wm-split-section {
   position:relative !important;
 }
@@ -111,6 +112,11 @@ body:not(.sqs-edit-mode-active) .remove-height{
 }
 
 /*Default Section Backgrounds*/
+.section-background img {
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
 .wm-split-section .section-background img, 
 .wm-split-section .summary-v2-block img{
   width: 100% !important;
