@@ -196,6 +196,10 @@ $(function(){
 
     if(window.self !== window.top){
       $('[data-test="frameToolbarEdit"]', parent.document).on('click', function(){
+
+        $('.wm-split-section').each(function(){
+          $(this)[0].style.width = '';
+        });
         $('.wm-split-section').unwrap();
       })
     }
