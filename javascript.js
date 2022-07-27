@@ -99,7 +99,6 @@ $(function(){
           styles = window.getComputedStyle(splitContainer),
           breakpoint = styles.getPropertyValue('--mobile-breakpoint');
       breakpoint = parseInt(breakpoint);
-      console.log(breakpoint);
       
       if (breakpoint) {
         mobileBreakpoint = breakpoint;
@@ -146,7 +145,7 @@ $(function(){
           }
         }
         function checkWidth() {
-          if (window.matchMedia(`(max-width: ${breakpoint}px)`).matches) {
+          if (window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches) {
             setReverse();
           } else {
             removeReverse();
