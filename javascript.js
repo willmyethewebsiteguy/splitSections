@@ -15,7 +15,7 @@ $(function(){
 
     // load the stylesheet 
     if(!document.querySelector('#wm-split-css')) {
-      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.016/styles.min.css",
+      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.017/styles.min.css",
           head = document.getElementsByTagName('head')[0],
           link = document.createElement('link');
 
@@ -204,7 +204,7 @@ $(function(){
     }
 
     function loadImages() {
-      let images = document.querySelectorAll('.wm-split-section .summary-v2-block img, .wm-split-section .section-background img');
+      let images = document.querySelectorAll('.wm-split-section .summary-v2-block img, .wm-split-section .section-background img, .wm-split-section .sqs-block-gallery .content-fit img');
       images.forEach(img => {
         let imgData = img.dataset,
             focalPoint = imgData.imageFocalPoint,
