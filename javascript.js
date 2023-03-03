@@ -15,7 +15,7 @@ $(function(){
 
     // load the stylesheet 
     if(!document.querySelector('#wm-split-css')) {
-      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3.2.017/styles.min.css",
+      let url = "https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/splitSections@3/styles.min.css",
           head = document.getElementsByTagName('head')[0],
           link = document.createElement('link');
 
@@ -160,7 +160,12 @@ $(function(){
         $('#split-group-' + index).find('.wm-split-section').eq(w).css({
           'width': `calc(${splitWidths[w]} - ${border}px)`,
         });
+        $('#split-group-' + index).find('.wm-split-section').eq(w)[0].style.setProperty('--width', (parseFloat(splitWidths[w]).toFixed(5) / 100));
         $('#split-group-' + index)[0].style.setProperty("--gap", `${border}px`);
+      }
+      
+      if ($(this).attr('data-max-width') == 'maintain'){
+        $('#split-group-' + index).addClass('maintain-max-width')
       }
 
       //If sticky section is declared, make it stick
@@ -180,6 +185,7 @@ $(function(){
 
       $('body').addClass('wm-split-sections-added');
     });
+    
 
     /*Adjust Padding on First Section*/
     function adjustHeaderBottom(){
