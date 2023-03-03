@@ -148,7 +148,7 @@ body:not(.sqs-edit-mode-active) .remove-height{
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child,
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child{
   --section-max-width: calc(var(--max-width) * var(--width));
-  width: calc( (var(--width) * var(--max-width)) + var(--side) - (var(--gap) * 3)) !important;
+  width: calc( (var(--width) * min(100vw, var(--max-width))) + var(--side) - (var(--gap) * 3)) !important;
 }
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section{
   --section-max-width: calc(var(--max-width) * var(--width));
