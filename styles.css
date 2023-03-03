@@ -157,6 +157,9 @@ body:not(.sqs-edit-mode-active) .remove-height{
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) .content-wrapper{
   max-width: calc(var(--section-max-width) + 2vw) !important;
 }
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) [data-fluid-engine-section] .content-wrapper{
+  max-width: calc(var(--section-max-width)) !important;
+}
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child .content-wrapper{
   margin-left: auto;
   margin-right: 0;
