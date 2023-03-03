@@ -119,7 +119,7 @@ body:not(.sqs-edit-mode-active) .remove-height{
 }
 .wm-split-section .section-background img, 
 .wm-split-section .summary-v2-block img, 
-.wm-split-section .sqs-block-gallery .content-fit img,
+.wm-split-section .sqs-block-gallery .content-fit img, 
 .wm-split-section .fluid-image-container .content-fit img{
   width: 100% !important;
   height: 100% !important;
@@ -130,10 +130,38 @@ body:not(.sqs-edit-mode-active) .remove-height{
 }
 
 .wm-split-sections:not(:first-child) .page-section:first-child{
-  padding-top:unset;
+  padding-top:unset !important;
 }
 
 /* 7.0 Code */
 .wm-split-section.Index-gallery{
   box-sizing:border-box;
+}
+
+
+
+/*New Layout Testing*/
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) {
+  --max-width: var(--sqs-site-max-width);
+  --side: calc( (100vw - var(--max-width)) / 2 );
+}
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child,
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child{
+  --section-max-width: calc(var(--max-width) * var(--width));
+  width: calc( (var(--width) * var(--max-width)) + var(--side) - (var(--gap) * 3)) !important;
+}
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section{
+  --section-max-width: calc(var(--max-width) * var(--width));
+  width: calc( (var(--width) * var(--max-width)) - (var(--gap) * 4)) !important;
+}
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) .content-wrapper{
+  max-width: calc(var(--section-max-width) + 2vw) !important;
+}
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child .content-wrapper{
+  margin-left: auto;
+  margin-right: 0;
+}
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child .content-wrapper{
+  margin-right: auto;
+  margin-left: 0;
 }
