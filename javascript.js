@@ -200,13 +200,23 @@ $(function(){
     }
 
     if(window.self !== window.top){
-      $('[data-test="frameToolbarEdit"]', parent.document).on('click', function(){
-
-        $('.wm-split-section').each(function(){
-          $(this)[0].style.width = '';
+      if (!$('main.Index').length){
+        let body = document.querySelector('body');
+        const observer = new MutationObserver(() => {
+          if (body.classList.contains('sqs-edit-mode-active')) {
+            console.log('now in edit mode!')
+            $('.wm-split-section').each(function(){
+              $(this)[0].style.width = '';
+            });
+            $('.wm-split-section').unwrap();
+          }
         });
-        $('.wm-split-section').unwrap();
-      })
+        
+        observer.observe(body, { 
+          attributes: true,
+          attributeFilter: ['class']
+        });
+      }
     }
 
     function loadImages() {
