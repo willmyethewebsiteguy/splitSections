@@ -204,11 +204,12 @@ $(function(){
         let body = document.querySelector('body');
         const observer = new MutationObserver(() => {
           if (body.classList.contains('sqs-edit-mode-active')) {
-            console.log('now in edit mode!')
             $('.wm-split-section').each(function(){
               $(this)[0].style.width = '';
+              $(this)[0].style.order = '';
             });
             $('.wm-split-section').unwrap();
+            observer.disconnect();
           }
         });
         
