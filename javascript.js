@@ -208,7 +208,8 @@ $(function(){
               $(this)[0].style.width = '';
               $(this)[0].style.order = '';
             });
-            $('.wm-split-section').unwrap();
+            $('.wm-split-section').unwrap('.wm-split-sections');
+            $('.wm-split-sections').remove();
             observer.disconnect();
           }
         });
