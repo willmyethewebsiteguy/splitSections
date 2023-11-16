@@ -1,7 +1,7 @@
 /*==========
-  Version 3.2
+  Version 3
   Split Sections Code For Squarespace 7.1 & 7.0
-   Copyright Will Myers 
+  Copyright Will Myers 
 ========== */
 $(function(){
   "use strict";
@@ -113,7 +113,8 @@ $(function(){
         }
       }
       window.addEventListener('resize', checkBreakpoint)
-
+      checkBreakpoint()
+      
       
       /*If Widths are Declared, Set Them*/
       if ($(this).attr('data-split-widths')){
