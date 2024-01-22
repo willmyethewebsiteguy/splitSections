@@ -29,7 +29,6 @@ $(function(){
       };   
       head.prepend(link);
     }
-
     /*Add 7.0 Code & CSS*/
     if ($('main.Index').length){
       $('body').addClass('sqs-seven-oh');
@@ -186,6 +185,23 @@ $(function(){
 
       $('body').addClass('wm-split-sections-added');
     });
+
+    /*Emit Custom Events*/
+    function emitEvent(type, detail = {}, elem = document) {
+      // Make sure there's an event type
+      if (!type) return;
+
+      // Create a new event
+      let event = new CustomEvent(type, {
+        bubbles: true,
+        cancelable: true,
+        detail: detail,
+      });
+
+      // Dispatch the event
+      return elem.dispatchEvent(event);
+    }
+    emitEvent('wmSplitSections:loaded')
     
 
     /*Adjust Padding on First Section*/
