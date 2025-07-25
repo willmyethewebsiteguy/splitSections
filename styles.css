@@ -6,80 +6,80 @@
 
 /*On Mobile*/
 body:not(.sqs-edit-mode-active) .wm-split-sections.mobile-breakpoint {
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 body:not(.sqs-edit-mode-active) .mobile-breakpoint .wm-split-section {
-  width:100% !important;
+  width: 100% !important;
   flex-grow: 1;
 }
 body:not(.sqs-edit-mode-active) .mobile-breakpoint .wm-split-section {
-  position:relative !important;
+  position: relative !important;
 }
 
 /*Sticky Section on Desktop*/
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky{
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky {
   left: 0;
-  min-height:100vh !important;
+  min-height: 100vh !important;
   align-items: start !important;
 }
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .content-wrapper{
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .content-wrapper {
   position: sticky !important;
   top: var(--wm-header-bottom, 0px);
   transition: top 240ms ease;
 }
 body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background {
-  overflow:unset !important;
+  overflow: unset !important;
 }
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > img{
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > img {
   position: sticky !important;
   max-height: 100vh !important;
   top: 0px;
 }
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackgroundNative"], 
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackground"], 
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackgroundNative"],
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > [data-controller="VideoBackground"],
 body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .section-background > .section-background-content {
   position: sticky !important;
-  height:100%;
+  height: 100%;
   max-height: 100vh !important;
   top: 0px;
 }
-body:not(.sqs-edit-mode-active) .wm-split-section .content-wrapper{
-  box-sizing:border-box !important;
+body:not(.sqs-edit-mode-active) .wm-split-section .content-wrapper {
+  box-sizing: border-box !important;
 }
 
 /*For 7.0 Websites*/
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-content{
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-content {
   position: sticky !important;
   top: var(--wm-header-bottom, 0px);
   transition: top 240ms ease;
 }
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .Index-page.split-sticky{
-  overflow:unset;
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .Index-page.split-sticky {
+  overflow: unset;
 }
 
 body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-image {
-  overflow:unset !important;
+  overflow: unset !important;
 }
 
-body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-image img{
+body:not(.sqs-edit-mode-active) .wm-split-sections:not(.mobile-breakpoint) .split-sticky .Index-page-image img {
   position: sticky !important;
   max-height: 100vh !important;
   top: 0px;
-  height:100% !important;
-  width:100% !important;
-  object-fit:cover;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
 }
 
 /*When In Edit Mode*/
 body:not(.sqs-edit-mode-active) .wm-split-section {
-  width:100%;
+  width: 100%;
   flex-grow: 1;
 }
 body:not(.sqs-edit-mode-active) .wm-split-sections {
-  display:flex;
-  flex-flow:row wrap;
-  position:relative;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
   gap: var(--gap);
   padding: var(--gap);
 }
@@ -87,40 +87,40 @@ body:not(.sqs-edit-mode-active) .wm-split-sections {
   width:unset !important;
 }*/
 body.sqs-edit-mode-active .wm-split-section {
-  position:relative !important;
+  position: relative !important;
 }
 
 /*Remove Height of Code Block*/
-body:not(.sqs-edit-mode-active) .remove-height{
-  padding:0px !important;
+body:not(.sqs-edit-mode-active) .remove-height {
+  padding: 0px !important;
 }
 
 /*Adjust First Section Padding*/
-@media(min-width: 799px){
-  body:not(.sqs-edit-mode-active) #sections .wm-split-sections:first-child .wm-split-section{
-    padding-top:var(--wm-header-height, 0px);
+@media (min-width: 799px) {
+  body:not(.sqs-edit-mode-active) #sections .wm-split-sections:first-child .wm-split-section {
+    padding-top: var(--wm-header-height, 0px);
   }
 }
-@media(max-width: 799px) {
+@media (max-width: 799px) {
   /*For Transparent Headers*/
   body:not(.sqs-edit-mode-active).tweak-transparent-header .sections > :first-child.wm-split-sections.mobile-breakpoint {
     padding-top: 0px !important;
   }
-  #header[data-current-style*='"headerStyle": "gradient"'] + main .sections > :first-child.wm-split-sections.mobile-breakpoint{
+  #header[data-current-style*='"headerStyle": "gradient"'] + main .sections > :first-child.wm-split-sections.mobile-breakpoint {
     padding-top: 0px !important;
   }
 }
 
 /*Default Section Backgrounds*/
 .section-background img {
-  height:100%;
-  width:100%;
-  object-fit:cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
-.wm-split-section .section-background img, 
-.wm-split-section .summary-v2-block img, 
-.wm-split-section .sqs-block-gallery .content-fit img, 
-.wm-split-section .fluid-image-container .content-fit img{
+.wm-split-section .section-background img,
+.wm-split-section .summary-v2-block img,
+.wm-split-section .sqs-block-gallery .content-fit img,
+.wm-split-section .fluid-image-container .content-fit img {
   width: 100% !important;
   height: 100% !important;
   left: 0 !important;
@@ -129,55 +129,50 @@ body:not(.sqs-edit-mode-active) .remove-height{
   object-fit: cover;
 }
 
-.wm-split-sections:not(:first-child) .page-section:first-child{
-  padding-top:unset !important;
+.wm-split-sections:not(:first-child) .page-section:first-child {
+  padding-top: unset !important;
 }
 
 /* 7.0 Code */
-.wm-split-section.Index-gallery{
-  box-sizing:border-box;
+.wm-split-section.Index-gallery {
+  box-sizing: border-box;
 }
-
-
 
 /*New Layout Testing*/
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) {
   --max-width: var(--sqs-site-max-width);
-  --side: calc( (100vw - var(--max-width)) / 2 );
+  --side: calc((100vw - var(--max-width)) / 2);
 }
 .wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child,
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child {
   --section-max-width: calc(var(--max-width) * var(--width));
-  width: calc( (var(--width) * min(100vw, var(--max-width))) + var(--side) - (var(--gap) * 3)) !important;
+  width: calc((var(--width) * min(100vw, var(--max-width))) + var(--side) - (var(--gap) * 3)) !important;
 }
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section {
   --section-max-width: calc(var(--max-width) * var(--width));
-  width: calc( (var(--width) * var(--max-width)) - (var(--gap) * 4)) !important;
+  width: calc((var(--width) * var(--max-width)) - (var(--gap) * 4)) !important;
 }
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) .content-wrapper{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) .content-wrapper {
   max-width: calc(var(--section-max-width) + 2vw) !important;
 }
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) [data-fluid-engine-section] .content-wrapper{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) [data-fluid-engine-section] .content-wrapper {
   max-width: calc(var(--section-max-width)) !important;
 }
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child .content-wrapper{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:first-child .content-wrapper {
   margin-left: auto;
   margin-right: 0;
 }
-.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child .content-wrapper{
+.wm-split-sections.maintain-max-width:not(.mobile-breakpoint) section:last-child .content-wrapper {
   margin-right: auto;
   margin-left: 0;
 }
 
-
 /*Squarespace 7.1 First Section Padding on Reverse*/
-article.sections > .wm-split-sections:first-child:has([data-wm-plugin="split-sections"][data-mobile-reverse="true"]) {
-  @media(max-width: 767px) {
-    .wm-split-section[style*="order: 1"] {
-      padding-top: var(--wm-header-height) !important;
-    }
-    .wm-split-section:not([style*="order: 1"]){
-      padding-top: 0px !important;
-    }
+@media (max-width: 767px) {
+  article.sections > .wm-split-sections:first-child:has([data-wm-plugin="split-sections"][data-mobile-reverse="true"]) .wm-split-section[style*="order: 1"] {
+    padding-top: var(--wm-header-height) !important;
+  }
+  article.sections > .wm-split-sections:first-child:has([data-wm-plugin="split-sections"][data-mobile-reverse="true"]) .wm-split-section:not([style*="order: 1"]) {
+    padding-top: 0px !important;
   }
 }
