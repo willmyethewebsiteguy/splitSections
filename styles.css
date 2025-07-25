@@ -168,3 +168,16 @@ body:not(.sqs-edit-mode-active) .remove-height{
   margin-right: auto;
   margin-left: 0;
 }
+
+
+/*Squarespace 7.1 First Section Padding on Reverse*/
+article.sections > .wm-split-sections:first-child:has([data-wm-plugin="split-sections"][data-mobile-reverse="true"]) {
+  @media(max-width: 767px) {
+    .wm-split-section[style*="order: 1"] {
+      padding-top: var(--wm-header-height) !important;
+    }
+    .wm-split-section:not([style*="order: 1"]){
+      padding-top: 0px !important;
+    }
+  }
+}
